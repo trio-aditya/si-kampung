@@ -50,7 +50,7 @@
     </div>
   </section><!-- End Hero -->
 
-  <main id="main">
+  <main id="main" class="text-center">
 
     <!-- ======= About Us Section ======= -->
     <section id="about-us" class="about-us">
@@ -60,7 +60,7 @@
           <h2>Sambutan Kepala Desa</strong></h2>
         </div>
 
-        <div class="row content">
+        <div class="row content text-center">
           <div class="row g-0">
           <?php foreach ($kepala_desa as $value) : ?>
             <div class="col-md-3">
@@ -82,6 +82,7 @@
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services section-bg">
+
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -89,24 +90,22 @@
           <p>Kampung A memiliki banyak potensi yang baik untuk dikembangkan. </p>
         </div>
 
-        <div class="row">
+        <div class="row text-center">
           <?php foreach ($potensi as $value) : ?>
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="card" style="width: 18rem;">
-              <img src="<?php echo base_url('assets/admin/upload/potensi/' . $value['foto']); ?>" class="card-img-top" alt="...">
-              <div class="card-body text-center">
+          <div class="col-lg-4 text-center" data-aos="zoom-in" data-aos-delay="100">
+            <div class="card text-center">
+            <img src="<?php echo base_url('assets/admin/upload/potensi/' . $value['foto']); ?>" class="card-img-top" alt="...">
+              <div class="card-body">
               <h5><b><?= $value['judul']?></b></h5>
               <hr>
               <a class="btn btn-outline-success" href="<?php echo base_url() ?>potensi/detail/<?php echo $value['id_potensi']; ?>" role="button">Lihat Potensi</a>
               </div>
             </div>
+            <br>
           </div>
           <?php endforeach; ?>
           </div>
-          <!-- <hr>
-          <?php echo $this->pagination->create_links(); ?> -->
         </div>
-
       </div>
     </section><!-- End Services Section -->
 

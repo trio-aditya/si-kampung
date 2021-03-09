@@ -10,7 +10,7 @@
           <h2>Pemerintah Desa</h2>
           <ol>
             <li><a href="<?php echo base_url(''); ?>">Beranda</a></li>
-            <li>Pemerintah Desa/li>
+            <li>Pemerintah Desa</li>
           </ol>
         </div>
 
@@ -18,15 +18,17 @@
     </section><!-- End Breadcrumbs -->
 
     <section id="services" class="services section-bg">
-      <div class="container text-center" data-aos="fade-up">
-        <div class="row">
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-         </div>
 
+      <div class="container" data-aos="fade-up">
+        <div class="row text-center">
+        <div class="col-lg-4 text-center" data-aos="zoom-in" data-aos-delay="100">
+            <div class="card text-center">
+            </div>
+          </div>
           <?php foreach ($kepala_desa as $value) : ?>
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="card" style="width: 18rem;">
-              <img src="<?php echo base_url('assets/admin/upload/kepala_desa/' . $value['foto']); ?>" class="card-img-top" alt="...">
+          <div class="col-lg-4 text-center" data-aos="zoom-in" data-aos-delay="100">
+            <div class="card text-center">
+            <img src="<?php echo base_url('assets/admin/upload/kepala_desa/' . $value['foto']); ?>" class="card-img-top text-center" alt="...">
               <div class="card-body text-center">
               <h5><b><?= $value['nama']?></b></h5>
               <hr>
@@ -35,9 +37,6 @@
             </div>
           </div>
           <?php endforeach; ?>
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-          </div>
           </div>
         </div>
       </div>
@@ -45,10 +44,10 @@
       <hr>
 
       <div class="container" data-aos="fade-up">
-        <div class="row">
+        <div class="row text-center">
           <?php foreach ($pemerintah as $value) : ?>
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="card" style="width: 18rem;">
+          <div class="col-lg-3 text-center" data-aos="zoom-in" data-aos-delay="100">
+            <div class="card text-center">
               <img src="<?php echo base_url('assets/admin/upload/pemerintah/' . $value['foto']); ?>" class="card-img-top" alt="...">
               <div class="card-body text-center">
               <h5><b><?= $value['nama']?></b></h5>
@@ -56,6 +55,7 @@
               <p class="card-text"><?= $value['kategori_pd']?></p>
               </div>
             </div>
+            <br>
           </div>
           <?php endforeach; ?>
           </div>
