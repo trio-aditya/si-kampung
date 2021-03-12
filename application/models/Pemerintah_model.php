@@ -47,6 +47,21 @@ class Pemerintah_model extends CI_Model
         $this->db->update('pemerintah', $data);
     }
 
+    //proses edit data file tanpa file
+    public function proses_edit_data_tanpa_foto()
+    {
+        $user_id = $this->session->userdata('id_user');
+        $nama = array('upload_data' => $this->upload->data());
+        $data = [
+            "nama" => $this->input->post('nama'),
+            "jabatan_id" => $this->input->post('jabatan_id'),
+            'user_id' => $user_id,
+        ];
+
+        $this->db->where('id_pemerintah', $this->input->post('id_pemerintah'));
+        $this->db->update('pemerintah', $data);
+    }
+
     //digunakan untuk menampilkan data foto
     public function hapus($id)
     {

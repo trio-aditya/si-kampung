@@ -22,21 +22,24 @@ class Berita_model extends CI_Model
         return $query->result_array();
     }
 
-    public function data($limit, $start){
+    public function data($limit, $start)
+    {
         return $this->db->get('berita', $limit, $start)->result_array();
     }
 
     //Search
-    public function get_search($keyword){
+    public function get_search($keyword)
+    {
         $this->db->select('*');
         $this->db->from('berita');
-        $this->db->like('judul_berita',$keyword);
+        $this->db->like('judul_berita', $keyword);
         // $this->db->or_like('harga',$keyword);
         $query = $this->db->get();
         return $query->result_array();
     }
 
-    public function kategori($id){
+    public function kategori($id)
+    {
         $this->db->select('*');
         $this->db->from('kategori_berita');
         // $this->db->join('user', 'user.id_user = berita.user_id');
@@ -48,7 +51,8 @@ class Berita_model extends CI_Model
         return $query->result_array();
     }
 
-    public function countBerita() {
+    public function countBerita()
+    {
         return $this->db->get('berita')->num_rows();
     }
 
@@ -82,6 +86,23 @@ class Berita_model extends CI_Model
         $this->db->update('berita', $data);
     }
 
+    //proses edit data tanpa file
+    public function proses_edit_data_tanpa_foto()
+    {
+        $user_id = $this->session->userdata('id_user');
+        $nama = array('upload_data' => $this->upload->data());
+        $data = [
+            "judul_berita" => $this->input->post('judul_berita'),
+            "isi" => $this->input->post('isi'),
+            "kategori_id" => $this->input->post('kategori_id'),
+            'user_id' => $user_id,
+            "tanggal_update" => date('Y-m-d H:i:s'),
+        ];
+
+        $this->db->where('id_berita', $this->input->post('id_berita'));
+        $this->db->update('berita', $data);
+    }
+
     //digunakan untuk menampilkan data foto
     public function hapus($id)
     {
@@ -98,11 +119,12 @@ class Berita_model extends CI_Model
         $this->db->delete('berita');
     }
 
-    public function search($keyword){
-		$this->db->select('*');
-		$this->db->from('berita');
-		$this->db->like('judul_berita',$keyword);
-		// $this->db->or_like('harga',$keyword);
-		return $this->db->get()->result();
-	}
+    public function search($keyword)
+    {
+        $this->db->select('*');
+        $this->db->from('berita');
+        $this->db->like('judul_berita', $keyword);
+        // $this->db->or_like('harga',$keyword);
+        return $this->db->get()->result();
+    }
 }

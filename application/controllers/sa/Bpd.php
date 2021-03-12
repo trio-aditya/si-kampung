@@ -76,35 +76,39 @@ class Bpd extends MY_Controller
         $data = $this->Bpd_model->editdata($id);
         $nama = './assets/admin/upload/bpd/' . $data['foto'];
 
-        if (is_readable($nama) && unlink($nama)) {
+        $config['upload_path']          = './assets/admin/upload/bpd/';
+        $config['allowed_types']        = 'jpg|jpeg|JPG|JPEG|png';
 
-            $config['upload_path']          = './assets/admin/upload/bpd/';
-            $config['allowed_types']        = 'jpg|jpeg|JPG|JPEG|png';
+        $this->load->library('upload', $config);
 
-            $this->load->library('upload', $config);
+        if (!$this->upload->do_upload('foto')) {
+            $update = $this->Bpd_model->proses_edit_data_tanpa_foto();
 
-            if (!$this->upload->do_upload('foto')) {
-                $data['error_upload'] = array('error' => $this->upload->display_errors());
-                $this->session->set_flashdata('error', ' ');
-                redirect('sa/bpd');
-            } else {
-                $upload_data = array('upload_data' => $this->upload->data());
-                $name = $upload_data['foto'];
-
-                $data = array(
-                    'foto' => $name
-                );
-
-                $update = $this->Bpd_model->proses_edit_data();
-
-                $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>Data berhasil diubah!</strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
                 </div>');
-                redirect('sa/bpd');
-            }
+            redirect('sa/bpd');
+        }
+        if (is_readable($nama) && unlink($nama)) {
+            $upload_data = array('upload_data' => $this->upload->data());
+            $name = $upload_data['foto'];
+
+            $data = array(
+                'foto' => $name
+            );
+
+            $update = $this->Bpd_model->proses_edit_data();
+
+            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Data berhasil diubah!</strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>');
+            redirect('sa/bpd');
         }
     }
 

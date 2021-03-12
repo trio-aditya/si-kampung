@@ -55,6 +55,20 @@ class Slider_utama_model extends CI_Model
         $this->db->update('slider_utama', $data);
     }
 
+    //proses edit data tanpa file
+    public function proses_edit_data_tanpa_foto()
+    {
+        $nama = array('upload_data' => $this->upload->data());
+        $data = [
+            "judul" => $this->input->post('judul'),
+            "pesan" => $this->input->post('pesan'),
+            "tanggal_update" => date('Y-m-d H:i:s'),
+        ];
+
+        $this->db->where('id_slider_utama', $this->input->post('id_slider_utama'));
+        $this->db->update('slider_utama', $data);
+    }
+
     //digunakan untuk menampilkan data foto
     public function hapus($id)
     {

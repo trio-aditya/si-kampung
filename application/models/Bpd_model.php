@@ -45,6 +45,20 @@ class Bpd_model extends CI_Model
         $this->db->update('bpd', $data);
     }
 
+    //proses edit data tanpa file
+    public function proses_edit_data_tanpa_foto()
+    {
+        $user_id = $this->session->userdata('id_user');
+        $data = [
+            "nama" => $this->input->post('nama'),
+            "jabatan" => $this->input->post('jabatan'),
+            'user_id' => $user_id,
+        ];
+
+        $this->db->where('id_bpd', $this->input->post('id_bpd'));
+        $this->db->update('bpd', $data);
+    }
+
     //digunakan untuk menampilkan data foto
     public function hapus($id)
     {

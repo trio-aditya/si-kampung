@@ -58,6 +58,20 @@ class Kepala_desa_model extends CI_Model
         $this->db->update('kepala_desa', $data);
     }
 
+    public function proses_edit_data_tanpa_foto()
+    {
+        $user_id = $this->session->userdata('id_user');
+        $tanpa_foto = [
+            "nama" => $this->input->post('nama'),
+            "periode" => $this->input->post('periode'),
+            "sambutan" => $this->input->post('sambutan'),
+            'user_id' => $user_id,
+        ];
+
+        $this->db->where('id_kepala_desa', $this->input->post('id_kepala_desa'));
+        $this->db->update('kepala_desa', $tanpa_foto);
+    }
+
     //digunakan untuk menampilkan data foto
     public function hapus($id)
     {

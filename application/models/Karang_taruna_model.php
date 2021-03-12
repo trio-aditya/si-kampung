@@ -45,6 +45,20 @@ class Karang_taruna_model extends CI_Model
         $this->db->update('karang_taruna', $data);
     }
 
+    //proses edit data file tanpa file
+    public function proses_edit_data_tanpa_foto()
+    {
+        $user_id = $this->session->userdata('id_user');
+        $data = [
+            "nama" => $this->input->post('nama'),
+            "jabatan" => $this->input->post('jabatan'),
+            'user_id' => $user_id,
+        ];
+
+        $this->db->where('id_karang_taruna', $this->input->post('id_karang_taruna'));
+        $this->db->update('karang_taruna', $data);
+    }
+
     //digunakan untuk menampilkan data foto
     public function hapus($id)
     {

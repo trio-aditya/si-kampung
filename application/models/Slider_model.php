@@ -68,6 +68,20 @@ class Slider_model extends CI_Model
         $this->db->update('slider', $data);
     }
 
+    //proses edit data tanpa file
+    public function proses_edit_data_tanpa_foto()
+    {
+        // $user_id = $this->session->userdata('id_user');
+        $nama = array('upload_data' => $this->upload->data());
+        $data = [
+            "pesan" => $this->input->post('pesan'),
+            "tanggal_update" => date('Y-m-d H:i:s'),
+        ];
+
+        $this->db->where('id_slider', $this->input->post('id_slider'));
+        $this->db->update('slider', $data);
+    }
+
     //digunakan untuk menampilkan data foto
     public function hapus($id)
     {
