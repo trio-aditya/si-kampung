@@ -19,7 +19,11 @@
             <span>Beranda</span></a>
     </li>
 
-    <li <?= $this->uri->segment(1) == '' || $this->uri->segment(2) == 'kategori_berita' || $this->uri->segment(2) == 'kategori_perangkat_desa' || $this->uri->segment(2) == 'kepala_desa' || $this->uri->segment(2) == 'slider_utama' ? 'class="nav-item active"' : 'class="nav-item"' ?>>
+    <li <?= $this->uri->segment(1) == '' || $this->uri->segment(2) == 'kategori_berita' || $this->uri->segment(2) == 'kategori_perangkat_desa' || $this->uri->segment(2) == 'kepala_desa'
+            || $this->uri->segment(2) == 'slider_utama' || $this->uri->segment(2) == 'agama' || $this->uri->segment(2) == 'akseptor' || $this->uri->segment(2) == 'asuransi'
+            || $this->uri->segment(2) == 'jenis_cacat' || $this->uri->segment(2) == 'golongan_darah' || $this->uri->segment(2) == 'hubungan_keluarga'
+            || $this->uri->segment(2) == 'pekerjaan' || $this->uri->segment(2) == 'pendidikan' || $this->uri->segment(2) == 'pendidikan_sekarang'
+            || $this->uri->segment(2) == 'sakit_menahun' ? 'class="nav-item active"' : 'class="nav-item"' ?>>
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-database"></i>
             <span>Data Master</span>
@@ -30,6 +34,17 @@
                 <a class="collapse-item" href="<?php echo base_url('sa/kepala_desa'); ?>">Kepala Desa</a>
                 <a class="collapse-item" href="<?php echo base_url('sa/kategori_perangkat_desa'); ?>">Perangkat Desa</a>
                 <a class="collapse-item" href="<?php echo base_url('sa/slider_utama'); ?>">Slider Utama</a>
+                <h6 class="collapse-header">Kependudukan:</h6>
+                <a class="collapse-item" href="<?php echo base_url('sa/agama'); ?>">Agama</a>
+                <a class="collapse-item" href="<?php echo base_url('sa/akseptor'); ?>">Akseptor KB</a>
+                <a class="collapse-item" href="<?php echo base_url('sa/asuransi'); ?>">Asuransi</a>
+                <a class="collapse-item" href="<?php echo base_url('sa/jenis_cacat'); ?>">Jenis Cacat</a>
+                <a class="collapse-item" href="<?php echo base_url('sa/golongan_darah'); ?>">Golongan Darah</a>
+                <a class="collapse-item" href="<?php echo base_url('sa/hubungan_keluarga'); ?>">Hubungan Keluarga</a>
+                <a class="collapse-item" href="<?php echo base_url('sa/pekerjaan'); ?>">Pekerjaan</a>
+                <a class="collapse-item" href="<?php echo base_url('sa/pendidikan'); ?>">Pendidikan Dalam KK</a>
+                <a class="collapse-item" href="<?php echo base_url('sa/pendidikan_sekarang'); ?>">Pendidikan Sekarang</a>
+                <a class="collapse-item" href="<?php echo base_url('sa/sakit_menahun'); ?>">Sakit Menahun</a>
             </div>
         </div>
     </li>
@@ -103,6 +118,21 @@
         <div id="penduduk" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="<?php echo base_url('sa/penduduk'); ?>">Penduduk</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
+
+    <li <?= $this->uri->segment(1) == '' || $this->uri->segment(2) == 'cetak_surat' ? 'class="nav-item active"' : 'class="nav-item"' ?>>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#layanan_surat" aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-newspaper"></i>
+            <span>Layanan Surat</span>
+        </a>
+        <div id="layanan_surat" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="<?php echo base_url('sa/cetak_surat'); ?>">Cetak Surat</a>
             </div>
         </div>
     </li>

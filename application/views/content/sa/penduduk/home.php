@@ -36,10 +36,20 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th width="5%">No.</th>
+                                    <th width="5%">NO.</th>
+                                    <th width="10%">AKSI</th>
+                                    <th>FOTO</th>
                                     <th>NIK</th>
-                                    <th>Nama</th>
-                                    <th width="15%">Aksi</th>
+                                    <th>NAMA</th>
+                                    <th>NO. KK</th>
+                                    <th>NAMA AYAH</th>
+                                    <th>NAMA IBU</th>
+                                    <th>ALAMAT</th>
+                                    <th>DUSUN</th>
+                                    <th>RT/RW</th>
+                                    <th>PENDIDIKAN DALAM KK</th>
+                                    <th>PEKERJAAN</th>
+                                    <th>STATUS KAWIN</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -47,32 +57,65 @@
                                 <?php foreach ($penduduk as $value) : ?>
                                     <tr>
                                         <th scope="row"><?= $no ?></th>
+                                        <td align="center">
+                                            <div class="dropdown">
+                                                <button class="btn btn-secondary dropdown-toggle btn-sm" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Pilih Aksi
+                                                </button>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                    <a class="btn btn-success btn-sm dropdown-item" data-toggle="tooltip" data-placement="bottom" title="Detail Data" href="<?php echo base_url() ?>sa/penduduk/detail/<?php echo $value['id_penduduk']; ?>" role="button">
+                                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                                            <path fill-rule="evenodd" d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                                                        </svg>
+                                                        | Detail Data</a>
+                                                    <a class="btn btn-primary btn-sm dropdown-item" data-toggle="tooltip" data-placement="bottom" title="Edit Data" href="<?php echo base_url() ?>sa/penduduk/edit/<?php echo $value['id_penduduk']; ?>" role="button">
+                                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                                        </svg>
+                                                        | Edit Data</a>
+                                                    <a class="btn btn-danger btn-sm dropdown-item" data-toggle="tooltip" data-placement="bottom" title="Hapus Data" href="<?php echo base_url() ?>sa/penduduk/hapus_data/<?php echo $value['id_penduduk']; ?>" role="button">
+                                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                                        </svg>
+                                                        | Hapus Data</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><img style="max-height: 100px; max-width: 100px;" src="<?php echo base_url('assets/admin/upload/penduduk/' . $value['foto']); ?>" class="rounded" alt="..."></td>
                                         <td><?= $value['nik']; ?></td>
                                         <td><?= $value['nama']; ?></td>
-                                        <td align="center">
-                                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-toggle="tooltip" data-placement="bottom" title="Edit Data" data-target="#editmodal<?php echo $value['id_penduduk']; ?>">
-                                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                                                </svg>
-                                            </button>
-                                            <a class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="bottom" title="Hapus Data" href="<?php echo base_url() ?>sa/penduduk/hapus_data/<?php echo $value['id_penduduk']; ?>" role="button">
-                                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
-                                                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
-                                                </svg>
-                                            </a>
-                                        </td>
+                                        <td><?= $value['no_kk']; ?></td>
+                                        <td><?= $value['nama_ayah']; ?></td>
+                                        <td><?= $value['nama_ibu']; ?></td>
+                                        <td><?= $value['alamat_sekarang']; ?></td>
+                                        <td><?= $value['dusun']; ?></td>
+                                        <td><?= $value['rt']; ?> / <?= $value['rw']; ?></td>
+                                        <td><?= $value['pendidikan']; ?></td>
+                                        <td><?= $value['pekerjaan']; ?></td>
+                                        <td><?= $value['status_perkawinan']; ?></td>
                                     </tr>
                                     <?php $no++; ?>
                                 <?php endforeach; ?>
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th width="5%">No.</th>
+                                    <th width="5%">NO.</th>
+                                    <th width="10%">AKSI</th>
+                                    <th>FOTO</th>
                                     <th>NIK</th>
-                                    <th>Nama</th>
-                                    <th width="15%">Aksi</th>
+                                    <th>NAMA</th>
+                                    <th>NO. KK</th>
+                                    <th>NAMA AYAH</th>
+                                    <th>NAMA IBU</th>
+                                    <th>ALAMAT</th>
+                                    <th>DUSUN</th>
+                                    <th>RT/RW</th>
+                                    <th>PENDIDIKAN DALAM KK</th>
+                                    <th>PEKERJAAN</th>
+                                    <th>STATUS KAWIN</th>
                                 </tr>
                             </tfoot>
                         </table>
