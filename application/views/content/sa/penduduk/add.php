@@ -243,7 +243,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label><strong>Alamat Email</strong></label>
-                            <input type="text" class="form-control" name="email" placeholder="Masukkan Alamat Email">
+                            <input type="email" class="form-control" name="email" placeholder="Masukkan Alamat Email">
                         </div>
                         <div class="form-group col-md-6">
                             <label><strong>Alamat Sebelumnya</strong></label>
@@ -327,6 +327,7 @@
                             </select>
                         </div>
                     </div>
+                    <hr>
                     <button type="submit" class="btn btn-primary float-right">SIMPAN</button>
                     <a href="<?php echo base_url() ?>sa/penduduk" class="btn btn-danger" role="button" aria-pressed="true">BATAL</a>&nbsp;&nbsp;
                     <?php echo form_close() ?>
@@ -338,93 +339,3 @@
     <!-- End of Main Content -->
 </div>
 <!-- End of Content Wrapper -->
-
-<!-- Start of Modal Tambah Data -->
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Data</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <?php echo form_open_multipart('sa/kepala_desa/proses_tambah_data'); ?>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label><strong>Nama Lengkap</strong></label>
-                    <input type="text" name="nama" class="form-control" required>
-                </div>
-                <hr>
-                <div class="form-group">
-                    <label><strong>Foto</strong></label>
-                    <input type="file" name="foto" class="form-control-file" required>
-                </div>
-                <hr>
-                <div class="form-group">
-                    <label><strong>Periode</strong></label>
-                    <input type="text" name="periode" class="form-control" required>
-                </div>
-                <hr>
-                <div class="form-group">
-                    <label><strong>Sambutan Singkat</strong></label>
-                    <textarea class="ckeditor" id="ckeditor" name="sambutan"></textarea>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                <button type="submit" class="btn btn-primary">Simpan</button>
-                <?php echo form_close() ?>
-            </div>
-        </div>
-    </div>
-</div> -->
-<!-- End of Modal Tambah Data -->
-
-<!-- Start of Modal Edit Data -->
-<!-- <?php $no = 0; ?>
-<?php foreach ($kepala_desa as $value) : $no++ ?>
-    <div class="modal fade" id="editmodal<?php echo $value['id_kepala_desa']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <?php echo form_open_multipart('sa/kepala_desa/proses_edit_data'); ?>
-                <input type="hidden" name="id_kepala_desa" value="<?php echo $value['id_kepala_desa']; ?>"></input>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label><strong>Nama Lengkap</strong></label>
-                        <input type="text" name="nama" value="<?php echo $value['nama']; ?>" class="form-control" required>
-                    </div>
-                    <hr>
-                    <div class="form-group">
-                        <label><strong>Foto</strong></label>
-                        <input type="file" name="foto" class="form-control-file"><br>
-                        <img style="max-height: 70px; max-width: 70px;" src="<?php echo base_url('assets/admin/upload/kepala_desa/' . $value['foto']); ?>" class="rounded" alt="...">
-                        <p><?php echo $value['foto']; ?></p>
-                    </div>
-                    <hr>
-                    <div class="form-group">
-                        <label><strong>Periode</strong></label>
-                        <input type="text" name="periode" value="<?php echo $value['periode']; ?>" class="form-control" required>
-                    </div>
-                    <hr>
-                    <div class="form-group">
-                        <label><strong>Sambutan Singkat</strong></label>
-                        <textarea class="ckeditor" id="ckeditor" name="sambutan"><?php echo $value['sambutan']; ?></textarea>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                    <?php echo form_close() ?>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php endforeach ?> -->
-<!-- End of Modal Edit Data -->

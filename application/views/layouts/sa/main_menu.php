@@ -20,7 +20,7 @@
     </li>
 
     <li <?= $this->uri->segment(1) == '' || $this->uri->segment(2) == 'kategori_berita' || $this->uri->segment(2) == 'kategori_perangkat_desa' || $this->uri->segment(2) == 'kepala_desa'
-            || $this->uri->segment(2) == 'slider_utama' || $this->uri->segment(2) == 'agama' || $this->uri->segment(2) == 'akseptor' || $this->uri->segment(2) == 'asuransi'
+            || $this->uri->segment(2) == 'agama' || $this->uri->segment(2) == 'akseptor' || $this->uri->segment(2) == 'asuransi'
             || $this->uri->segment(2) == 'jenis_cacat' || $this->uri->segment(2) == 'golongan_darah' || $this->uri->segment(2) == 'hubungan_keluarga'
             || $this->uri->segment(2) == 'pekerjaan' || $this->uri->segment(2) == 'pendidikan' || $this->uri->segment(2) == 'pendidikan_sekarang'
             || $this->uri->segment(2) == 'sakit_menahun' ? 'class="nav-item active"' : 'class="nav-item"' ?>>
@@ -33,7 +33,6 @@
                 <a class="collapse-item" href="<?php echo base_url('sa/kategori_berita'); ?>">Kategori Berita</a>
                 <a class="collapse-item" href="<?php echo base_url('sa/kepala_desa'); ?>">Kepala Desa</a>
                 <a class="collapse-item" href="<?php echo base_url('sa/kategori_perangkat_desa'); ?>">Perangkat Desa</a>
-                <a class="collapse-item" href="<?php echo base_url('sa/slider_utama'); ?>">Slider Utama</a>
                 <h6 class="collapse-header">Kependudukan:</h6>
                 <a class="collapse-item" href="<?php echo base_url('sa/agama'); ?>">Agama</a>
                 <a class="collapse-item" href="<?php echo base_url('sa/akseptor'); ?>">Akseptor KB</a>
@@ -118,6 +117,7 @@
         <div id="penduduk" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="<?php echo base_url('sa/penduduk'); ?>">Penduduk</a>
+                <a class="collapse-item" href="<?php echo base_url('sa/keluarga'); ?>">Keluarga</a>
             </div>
         </div>
     </li>
@@ -125,14 +125,17 @@
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
-    <li <?= $this->uri->segment(1) == '' || $this->uri->segment(2) == 'cetak_surat' ? 'class="nav-item active"' : 'class="nav-item"' ?>>
+    <li <?= $this->uri->segment(1) == '' || $this->uri->segment(2) == 'klasifikasi_surat' || $this->uri->segment(2) == 'pengaturan_surat' || $this->uri->segment(2) == 'cetak_surat' || $this->uri->segment(2) == 'arsip_surat' ? 'class="nav-item active"' : 'class="nav-item"' ?>>
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#layanan_surat" aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-newspaper"></i>
             <span>Layanan Surat</span>
         </a>
         <div id="layanan_surat" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="<?php echo base_url('sa/klasifikasi_surat'); ?>">Klasifikasi Surat</a>
+                <a class="collapse-item" href="<?php echo base_url('sa/pengaturan_surat'); ?>">Pengaturan Surat</a>
                 <a class="collapse-item" href="<?php echo base_url('sa/cetak_surat'); ?>">Cetak Surat</a>
+                <a class="collapse-item" href="<?php echo base_url('sa/arsip_surat'); ?>">Arsip Surat</a>
             </div>
         </div>
     </li>
@@ -140,10 +143,17 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    <li <?= $this->uri->segment(1) == '' || $this->uri->segment(2) == 'slider' ? 'class="nav-item active"' : 'class="nav-item"' ?>>
-        <a class="nav-link" href="<?php echo base_url('sa/slider'); ?>">
+    <li <?= $this->uri->segment(1) == '' || $this->uri->segment(2) == 'slider_utama' || $this->uri->segment(2) == 'slider' ? 'class="nav-item active"' : 'class="nav-item"' ?>>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#slider" aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-image"></i>
-            <span>Slider</span></a>
+            <span>Slider</span>
+        </a>
+        <div id="slider" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="<?php echo base_url('sa/slider_utama'); ?>">Slider Utama</a>
+                <a class="collapse-item" href="<?php echo base_url('sa/slider'); ?>">Slider</a>
+            </div>
+        </div>
     </li>
 
     <!-- Divider -->
